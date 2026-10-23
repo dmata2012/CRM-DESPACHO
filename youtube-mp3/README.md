@@ -17,6 +17,12 @@ Aplicación web interna, con un flujo parecido al de y2mate: pegas un enlace, ve
 
 ## Instalación y uso
 
+### Windows (recomendado)
+
+Doble clic en **`iniciar.bat`**. La primera vez instala todo; después solo actualiza yt-dlp y abre el navegador en http://127.0.0.1:5000. Para cerrar la app, cierra la ventana negra.
+
+### Manual (cualquier sistema)
+
 ```bash
 cd youtube-mp3
 python -m venv .venv
@@ -50,7 +56,7 @@ Los archivos generados se borran solos cuando pasan los 30 minutos.
 
 ## Mantenimiento
 
-YouTube cambia su plataforma con frecuencia. Si las descargas empiezan a fallar, actualiza yt-dlp:
+YouTube cambia su plataforma con frecuencia. `iniciar.bat` actualiza yt-dlp en cada arranque. Si usas el modo manual y las descargas empiezan a fallar, actualiza yt-dlp:
 
 ```bash
 pip install -U yt-dlp
