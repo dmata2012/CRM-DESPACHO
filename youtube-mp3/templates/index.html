@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Convertidor MP3</title>
+  <title>Convertidor de Audio</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
   <main class="container">
     <header>
-      <h1>Convertidor <span>YouTube → MP3</span></h1>
-      <p class="subtitle">Pega el enlace del video, elige la calidad y descarga el audio.</p>
+      <h1>Convertidor <span>YouTube → Audio</span></h1>
+      <p class="subtitle">Busca un video, elige formato y calidad, y agrégalo a la cola.</p>
     </header>
 
     <form id="search-form" class="search">
@@ -27,18 +27,20 @@
         <p id="meta" class="meta"></p>
 
         <div class="options">
-          <label for="bitrate">Calidad</label>
-          <select id="bitrate"></select>
-          <button id="convert-btn" type="button">Convertir</button>
+          <label>Formato <select id="format"></select></label>
+          <label id="bitrate-label">Calidad <select id="bitrate"></select></label>
+          <button id="add-btn" type="button">Agregar a la cola</button>
         </div>
-
-        <div id="progress-box" class="progress-box" hidden>
-          <div class="progress"><div id="bar"></div></div>
-          <p id="progress-text"></p>
-        </div>
-
-        <a id="download-btn" class="download" hidden>Descargar MP3</a>
       </div>
+    </section>
+
+    <section id="queue-section" class="queue" hidden>
+      <div class="queue-header">
+        <h2>Cola de descargas <span id="queue-count"></span></h2>
+        <label class="check"><input id="auto-download" type="checkbox" checked> Descargar al terminar</label>
+        <button id="clear-btn" type="button" class="secondary">Quitar terminados</button>
+      </div>
+      <ul id="queue"></ul>
     </section>
 
     <footer>

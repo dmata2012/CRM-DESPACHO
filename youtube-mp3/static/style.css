@@ -20,6 +20,7 @@
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 
 body {
   margin: 0;
@@ -64,17 +65,40 @@ button:disabled { opacity: .6; cursor: wait; }
 .meta { margin: 0 0 16px; color: var(--muted); font-size: .9rem; }
 
 .options { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.options label { display: flex; align-items: center; gap: 6px; color: var(--muted); }
 .options select {
   padding: 10px; font-size: 1rem; border-radius: 8px;
   border: 1px solid var(--border); background: var(--card); color: var(--text);
 }
 
-.progress-box { margin-top: 16px; }
-.progress { height: 10px; background: var(--border); border-radius: 99px; overflow: hidden; }
-#bar { height: 100%; width: 0; background: var(--accent); transition: width .3s; }
-#progress-text { margin: 6px 0 0; font-size: .9rem; color: var(--muted); }
+button.secondary { background: transparent; color: var(--muted); border: 1px solid var(--border); padding: 8px 14px; font-size: .9rem; }
+button.secondary:hover { background: var(--border); color: var(--text); }
 
-.download { display: inline-block; margin-top: 16px; background: var(--ok); }
+.queue { margin-top: 32px; }
+.queue-header { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.queue-header h2 { margin: 0; font-size: 1.2rem; flex: 1; }
+.queue-header h2 span { color: var(--muted); font-weight: 400; font-size: 1rem; }
+.check { display: flex; align-items: center; gap: 6px; font-size: .9rem; color: var(--muted); cursor: pointer; }
+.queue ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+
+.job {
+  display: flex; align-items: center; gap: 14px; padding: 12px;
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+}
+.job img { width: 120px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; flex-shrink: 0; }
+.job-info { flex: 1; min-width: 0; }
+.job-title { margin: 0 0 2px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.job .meta { margin: 0 0 8px; }
+.job-status { margin: 4px 0 0; font-size: .85rem; color: var(--muted); }
+.job.error .job-status { color: var(--accent); }
+.job.done .job-status { color: var(--ok); }
+.job-actions { display: flex; gap: 6px; align-items: center; flex-shrink: 0; }
+
+.progress { height: 8px; background: var(--border); border-radius: 99px; overflow: hidden; }
+.progress div { height: 100%; background: var(--accent); transition: width .3s; }
+.job.done .progress div { background: var(--ok); }
+
+.download { display: inline-block; background: var(--ok); padding: 8px 16px; font-size: .9rem; }
 
 footer { margin-top: 40px; text-align: center; font-size: .85rem; color: var(--muted); }
 
@@ -82,4 +106,7 @@ footer { margin-top: 40px; text-align: center; font-size: .85rem; color: var(--m
   .search { flex-direction: column; }
   .card { flex-direction: column; }
   .card img { width: 100%; }
+  .job { flex-wrap: wrap; }
+  .job img { width: 96px; }
+  .job-actions { width: 100%; justify-content: flex-end; }
 }
