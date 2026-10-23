@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Convertidor MP3</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Convertidor <span>YouTube → MP3</span></h1>
+      <p class="subtitle">Pega el enlace del video, elige la calidad y descarga el audio.</p>
+    </header>
+
+    <form id="search-form" class="search">
+      <input id="url" type="url" placeholder="https://www.youtube.com/watch?v=..." required autocomplete="off">
+      <button type="submit" id="search-btn">Buscar</button>
+    </form>
+
+    <p id="message" class="message" hidden></p>
+
+    <section id="result" class="card" hidden>
+      <img id="thumb" alt="Miniatura del video">
+      <div class="details">
+        <h2 id="title"></h2>
+        <p id="meta" class="meta"></p>
+
+        <div class="options">
+          <label for="bitrate">Calidad</label>
+          <select id="bitrate"></select>
+          <button id="convert-btn" type="button">Convertir</button>
+        </div>
+
+        <div id="progress-box" class="progress-box" hidden>
+          <div class="progress"><div id="bar"></div></div>
+          <p id="progress-text"></p>
+        </div>
+
+        <a id="download-btn" class="download" hidden>Descargar MP3</a>
+      </div>
+    </section>
+
+    <footer>
+      Descarga solo contenido propio, con licencia libre o sobre el que tengas derechos.
+    </footer>
+  </main>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
